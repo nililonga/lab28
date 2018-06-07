@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@if (ViewBag.Error != null)
+{
+    <div>
+        <h2>Error: Status @ViewBag.Error</h2>
+        @ViewBag.ErrorDescription
+        <br />
+        @ViewBag.Data
+    </div>
+}
+else
+{
+    <h2>Cards</h2>
+    <div>
+       
+        <table class="table table-bordered table-striped">
+            <tr>
+                
+                
+            </tr>
+            @for (int i = 0; i < ViewBag.Card.Count; i++)
+            {
+
+
+                
+                    <img src="@ViewBag.Card[i].image" />
+                    @ViewBag.Card[i].value;
+                    @ViewBag.Card[i].suit;
+                    
+
+            }
+        </table>
+    </div>
+}
+<script>
+function toggleMoreInfo(fieldNumber) {
+        if (document.getElementById('text-' + fieldNumber).style.display
+            == "none") {
+            document.getElementById('text-' + fieldNumber).style.display = 'block';
+            document.getElementById('link-' + fieldNumber).innerHTML = 'Hide';
+        } else {
+            document.getElementById('text-' + fieldNumber).style.display = 'none';
+            document.getElementById('link-' + fieldNumber).innerHTML = 'Show more';
+        }
+    }</script>
